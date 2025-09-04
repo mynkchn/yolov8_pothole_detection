@@ -9,6 +9,14 @@ import os
 from typing import List, Dict, Any
 import uvicorn
 import logging
+from pathlib import Path
+
+# Get the port from environment variable (Render requirement)
+PORT = int(os.environ.get("PORT", 8000))
+
+# Update model path to work on Render
+BASE_DIR = Path(__file__).parent
+MODEL_PATH = BASE_DIR / 'model' / 'yolov8n.pt'  # or your custom model name
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -64,7 +72,7 @@ setup_yolo_compatibility()
 from ultralytics import YOLO
 
 # Model configuration - Update this path to your custom model
-MODEL_PATH = 'app/model/yolov8n.pt'  # Change this to your custom pothole model path
+# Change this to your custom pothole model path
 SUPPORTED_FORMATS = ['.jpg', '.png', '.jpeg', '.bmp', '.tiff', '.webp']
 model = None
 
@@ -373,6 +381,7 @@ if __name__ == "__main__":
     uvicorn.run(
         app, 
         host="0.0.0.0", 
-        port=8000,
-        log_level="info"
+        port=PORT,  # Use PORT from environment
+        log_level="info",
+        workers=1  # Single worker for Render's starter plan
     )
