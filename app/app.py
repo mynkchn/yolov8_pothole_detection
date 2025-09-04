@@ -64,7 +64,7 @@ setup_yolo_compatibility()
 from ultralytics import YOLO
 
 # Model configuration - Update this path to your custom model
-MODEL_PATH = '/model/yolov8n.pt'  # Change this to your custom pothole model path
+MODEL_PATH = 'app/model/yolov8n.pt'  # Change this to your custom pothole model path
 SUPPORTED_FORMATS = ['.jpg', '.png', '.jpeg', '.bmp', '.tiff', '.webp']
 model = None
 
