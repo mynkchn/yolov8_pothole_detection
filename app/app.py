@@ -15,7 +15,7 @@ from pathlib import Path
 PORT = int(os.environ.get("PORT", 8000))
 
 # Update model path to work on Render
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent
 MODEL_PATH = BASE_DIR / 'model' / 'yolov8n.pt'  # or your custom model name
 
 # Configure logging
