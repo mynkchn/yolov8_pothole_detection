@@ -3,7 +3,7 @@ services:
     name: pothole-detection-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: python app/app.py
     plan: free
     envVars:
       - key: PYTHON_VERSION
