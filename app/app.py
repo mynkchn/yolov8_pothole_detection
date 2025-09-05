@@ -16,8 +16,7 @@ PORT = int(os.environ.get("PORT", 8000))
 
 # Update model path to work on Render
 BASE_DIR = Path(__file__).parent.parent
-MODEL_PATH = BASE_DIR / 'model' / 'best.pt'  # or your custom model name
-
+MODEL_PATH = BASE_DIR / 'model' / 'temp.pt'
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
